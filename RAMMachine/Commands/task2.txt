@@ -1,0 +1,38 @@
+﻿LOAD =0
+STORE 1
+STORE 2
+
+read:
+READ 0
+JZERO final_check
+SUB =1
+JZERO increment1
+SUB =1
+JZERO increment2
+JUMP print_false
+
+increment1:
+LOAD 1
+ADD =1
+STORE 1
+JUMP read
+
+increment2:
+LOAD 2
+ADD =1
+STORE 2
+JUMP read
+
+final_check:
+LOAD 1
+MULT 1
+SUB 2
+JZERO print_true
+
+print_false:
+WRITE =0
+HALT
+
+print_true:
+WRITE =1
+HALT

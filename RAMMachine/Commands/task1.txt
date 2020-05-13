@@ -1,0 +1,68 @@
+﻿LOAD =5
+STORE 1
+
+read:
+READ 0
+JZERO initialize
+STORE *1
+LOAD 1
+ADD =1
+STORE 1
+JUMP read
+
+initialize:
+LOAD 1
+SUB =1
+STORE 1
+LOAD =5
+STORE 2
+LOAD =4
+STORE 3
+
+check1:
+LOAD 3
+ADD =1
+STORE 3
+LOAD =4
+STORE 4
+LOAD 3
+SUB 1
+SUB =1
+JZERO print
+
+check2:
+LOAD 4
+ADD =1
+STORE 4
+LOAD *3
+SUB *4
+JGTZ swap
+
+check3:
+LOAD 1
+SUB 4
+JGTZ check2
+JZERO check1
+
+print:
+LOAD 1
+WRITE *0
+SUB =1
+STORE 1
+LOAD 1
+SUB 2
+ADD =1
+JGTZ print
+HALT
+
+swap:
+LOAD *3
+ADD *4
+STORE *4
+LOAD *4
+SUB *3
+STORE *3
+LOAD *4
+SUB *3
+STORE *4
+JUMP check3

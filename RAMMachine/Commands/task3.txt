@@ -1,0 +1,20 @@
+﻿READ 1
+LOAD 1
+STORE 2
+SUB =1
+STORE 3
+while:
+LOAD 3
+JGTZ loop
+JUMP print
+loop:
+LOAD 2
+MULT 1
+STORE 2
+LOAD 3
+SUB =1
+STORE 3
+JUMP while
+print:
+WRITE 2
+HALT
